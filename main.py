@@ -35,7 +35,7 @@ def restricted(access_level):
                 abort(403)
 
             user_=Models.Users.query.filter_by(username=username).first()
-            if user_.role==access_level:
+            if user_.role==access_level or user_.role=="admin":
                 return func(*args, **kwargs)
             else:
                 abort(403)
@@ -110,6 +110,7 @@ def adduser():
 
 
 @app.route('/challenges', methods=["GET","POST"])
+@restricted('member')
 def challenges():
     return f"Logged in as {session['username']}"
 

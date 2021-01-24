@@ -10,6 +10,13 @@
 </ul>
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
 <ul>
-  <li>Add login part for the backend and create a db model for it.</li>
-  <li>Add some kind of easy to use authorization feature in the code itself which makes it easier to keep track of logged in users.</li>
+  <li>Complete the admin interface for easy and secure user adding and removing.</li>
+  <li>Add a way to generate an admin account on the initial deployment of the web app.</li>
+  <li>Look into generating unique salts for each deployment and how they can be stored safely.</li>
+</ul>
+
+<h4>Things done:</h4>
+<ul>
+  <li>Added login feature and minor registration features.</li>
+  <li>A really unsafe endpoint which you can use to add accounts is /api/register. Again, the web app is still being developed so you can't blame me :P</li>
 </ul>
