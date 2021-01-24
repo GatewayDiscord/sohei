@@ -11,5 +11,5 @@
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
 <ul>
   <li>Add a functional login system</li>
-  <li>Add some kind of easy to use authorization feature.</li>
+  <li>Add some kind of easy to use authorization feature in the code itself which makes it easier to keep track of logged in users.</li>
 </ul>
