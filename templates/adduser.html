@@ -1,13 +1,16 @@
-{% extends "layout.html" %}
+{% extends "admin_layout.html" %}
 {% block content %}
-    <div class="login">
-      <form link="/login" method="post">
+    <div class="register">
+      <form  method="post">
           <label for="username">username:</label>
           <input type="text" id="username" name="username"><br><br>
           <label for="password">password</label>
           <input type="password" id="password" name="password"><br><br>
+          <label for="role">role</label>
+          <input type="role" id="password" name="role"><br><br>
           <input type="submit" value="Submit">
       </form>
     </div>
     {{error}}
+
 {% endblock %}
