@@ -1,7 +1,7 @@
 <h1>SOHEI</h1>
 <h3>A framework for CTF Teams to play CTFs in order to win them.</h3>
 <hr>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Yoshitsune_with_benkei.jpg/220px-Yoshitsune_with_benkei.jpg"/>
+<center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Yoshitsune_with_benkei.jpg/220px-Yoshitsune_with_benkei.jpg"/></center>
 <p>Sohei is a framework that can be used by CTF teams to keep track of CTFs while playing them. It aims to enhance communication between teams during and productivity. </p>
 <h4>How to use:</h4>
 <ul>
