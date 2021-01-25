@@ -11,13 +11,14 @@
 </ul>
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
 <ul>
-  <li>Complete the admin interface for easy and secure user adding and removing.</li>
-  <li>Add a way to generate an admin account on the initial deployment of the web app.</li>
   <li>Look into generating unique salts for each deployment and how they can be stored safely.</li>
+  <li>Write a db model for challenges.</li>
+  <li>Write a good enough interface for users to add challenges.</li>
 </ul>
 
 <h4>Things done:</h4>
 <ul>
-  <li>Added login feature and minor registration features.</li>
-  <li>A really unsafe endpoint which you can use to add accounts is /api/register. Again, the web app is still being developed so you can't blame me :P</li>
+  <li>Added login feature and minor registration features</li>
+  <li>Added a sorta working admin panel that needds to be worked upon and setup.py which allows an admin user to be created on initial deployment</li>
+  <li>Admins can remove or add a certain user themselves.</li>
 </ul>
