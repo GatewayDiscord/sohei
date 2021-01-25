@@ -11,7 +11,7 @@
 </ul>
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
 <ul>
-  <li>Look into generating unique salts for each deployment and how they can be stored safely.</li>
+  <li>Look into generating unique salts for each deployment and how they can be stored safely for the passwords</li>
   <li>Write a db model for challenges.</li>
   <li>Write a good enough interface for users to add challenges.</li>
 </ul>
