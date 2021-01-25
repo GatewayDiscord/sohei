@@ -1,13 +1,19 @@
 {% extends "admin_layout.html" %}
 {% block content %}
     <div class="register">
+      <h4>Add new user:</h4>
       <form  method="post">
           <label for="username">username:</label>
           <input type="text" id="username" name="username"><br><br>
           <label for="password">password</label>
           <input type="password" id="password" name="password"><br><br>
           <label for="role">role</label>
-          <input type="role" id="password" name="role"><br><br>
+          
+          <select name="role" id="role">
+            <option value="member">member</option>
+            <option value="admin">admin</option>
+          </select>
+
           <input type="submit" value="Submit">
       </form>
     </div>

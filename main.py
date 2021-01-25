@@ -51,23 +51,23 @@ def sanitise(text):
     else:
         return [False, sanitised]
 
+def register(username, password, role):
+    username=sanitise(username)[1]
+    password=bcrypt.hashpw(password.encode(), salt)
+    role=sanitise(role)[1]
+    User=Models.Users.query.filter_by(username=username).first()
+    if User is None:
+        new_user=Models.Users(username, password, time.strftime("%A %B, %d %Y %H:%M:%S"), role)
+        Models.db.session.merge(new_user)
+        Models.db.session.commit()
+        return "Success"
+    else:
+        return "User already exists"
+
 @app.route('/')
 def welcome():
     return render_template('index.html', team_name=configs["team_name"], head_text=configs["head_text"])
 
-@app.route('/api/register', methods=["GET","POST"])
-def register():
-    username=sanitise(request.form['username'])[1]
-    password=bcrypt.hashpw(request.form['password'].encode(), salt)
-    role=sanitise(request.form['role'])[1]
-    User=Models.Users.query.filter_by(username=username).first()
-    if User is None:
-        new_user=Models.Users(username, password, time.strftime("%A %B, %d %Y %H:%M:%S"), role, request.remote_addr)
-        Models.db.session.merge(new_user)
-        Models.db.session.commit()
-        return "Successfully registered."
-    else:
-        return "User already exists"
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
@@ -103,19 +103,33 @@ def login():
     return render_template('login.html', team_name=configs["team_name"], head_text=configs["head_text"], error=error)
 
 
+@app.route('/admin', methods=["GET","POST"])
+@restricted('admin')
+def admin_index():
+    return render_template("admin_index.html",team_name=configs["team_name"], head_text=configs["head_text"])
+
+
 @app.route('/admin/adduser', methods=['GET',"POST"])
+@restricted('admin')
 def adduser():
     error=""
+    try:
+        if request.form["username"]!="" and request.form["password"]!="" and request.form["role"]!="":
+            res=register(request.form["username"], request.form["password"], request.form["role"])
+            if res=="Success":
+                error=f"User {sanitise(request.form['username'])[1]} registered." #more like a success message but i utilised it anyway
+            else:
+                error=f"User {sanitise(request.form['username'])[1]} already exists."
+    except Exception as e:
+        print(e)
     return render_template('adduser.html',team_name=configs["team_name"], head_text=configs["head_text"], error=error)
 
 
 @app.route('/challenges', methods=["GET","POST"])
 @restricted('member')
 def challenges():
-    return f"Logged in as {session['username']}"
+    return f"Logged in as {session['username']} with role {session['role']}"
 
 if __name__=="__main__":
-    Models.db.create_all()
+    #Models.db.create_all() #setup.py takes care of that.
     app.run(debug=True,host="127.0.0.1")
-
-
