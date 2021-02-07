@@ -16,6 +16,7 @@ import json
 
 app=Flask(__name__, template_folder="templates")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']=''.join(secrets.choice(string.ascii_uppercase + string.digits) for i in range(200))
 db=SQLAlchemy(app)
 
@@ -45,6 +46,7 @@ def restricted(access_level):
 
 def sanitise(text):
     sanitised=re.sub('[^a-zA-z0-9]', '', str(text))
+    sanitised.replace(' ','')
 
     if sanitised==text:
         return [True, sanitised]
