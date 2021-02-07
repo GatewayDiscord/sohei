@@ -1,7 +1,21 @@
-<html>
-  <center><h1>{{team_name}}</h1></center>
-  <center><h2>Welcome to sohei.</h2></center>
-  <center><p>{{head_text}}</p></center>
-  <hr>
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgb(15, 16, 22)";>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='bulma.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='fonts.css')}}">
+  <title>sohei</title>
+</head>
+<body style="color:white;" class="general">
+  <br>
+  <center><h1 
+    style="color:rgb(32, 255, 2); text-shadow: 4px 3px 0 #db10ff, 7px 2px 2px rgba(206,89,55,0);"
+    class="is-size-1 pixel">{{team_name}}</h1></center>
+  <br>
+  <center><h2 class="is-size-3">Welcome to sohei.</h2></center>
+  <center><p class="is-size-5">{{head_text}}</p></center>
+  <div style="height: 3.5em"></div>
   {% block content %}{% endblock %}
+</body>
 </html>
