@@ -12,7 +12,7 @@
   
   ```> python3 setup.py```
   
-  The admin credentials you put here can be used in the admin login. <b>Only admins can register other members as of now.</b>
+  The admin credentials you put here can be used in the admin login. <b>Only admins can register other members as of now. Feel free to delete test.db on any mess ups.</b>
   
   <h2>Test run the web app:</h2>
   
