@@ -5,7 +5,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Yoshitsune_with_benkei.jpg/220px-Yoshitsune_with_benkei.jpg"/></p>
 <p>Sohei is a framework that can be used by CTF teams to keep track of CTFs while playing them. It aims to enhance communication between teams during and productivity. </p>
 <img src="/media/webapp.gif">
-<h4>Instructions:</h4>
+<h1>Instructions:</h1>
 
   ```> git clone https://github.com/GatewayFolks/sohei/```
 
