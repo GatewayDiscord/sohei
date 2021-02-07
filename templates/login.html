@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="login">
-      <form link="/login" method="post">
-          <label for="username">username:</label>
-          <input type="text" id="username" name="username"><br><br>
-          <label for="password">password</label>
-          <input type="password" id="password" name="password"><br><br>
-          <input type="submit" value="Submit">
+    <div class="login" style=" width: 100%;">
+      <form link="/login" method="post" style="width: 45%; margin: auto;">
+          <label class="is-size-5" for="username">username:</label>
+          <input class="input is-success is-size-6" type="text" id="username" name="username"><br><br>
+          <label class="is-size-5" for="password">password</label>
+          <input class="input is-success is-size-6" type="password" id="password" name="password"><br><br>
+          <div style="text-align: center">
+            <input class="button is-dark" type="submit" value="Submit">
+          </div>
       </form>
     </div>
     {{error}}
