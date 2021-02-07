@@ -8,7 +8,16 @@
 
   ```> python3 -m pip install -r requirements.txt```
   
+  <h2>Get the admin user registered:</h2>
+  
+  ```> python3 setup.py```
+  
+  The admin credentials you put here can be used in the admin login. <b>Only admins can register other members as of now.</b>
+  
+  <h2>Test run the web app:</h2>
+  
   ```> python3 main.py``` only for development!! the project isn't ready yet!
+ 
 
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
 <ul>
