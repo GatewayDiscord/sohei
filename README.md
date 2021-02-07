@@ -8,9 +8,16 @@
 
   ```> python3 -m pip install -r requirements.txt```
   
+  <br>
+  <img src="/media/pipinstall.gif"  />
+  
   <h2>Get the admin user registered:</h2>
   
   ```> python3 setup.py```
+  
+   <br>
+   <img src="/media/setup.gif"  />
+  
   
   The admin credentials you put here can be used in the admin login. <b>Only admins can register other members as of now. Feel free to delete test.db on any mess ups.</b>
   
