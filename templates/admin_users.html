@@ -1,0 +1,10 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+  <div class="users">
+    {% for user in users %}
+    <p>{{ user.username }} - {{ user.role }}</p>
+    {% endfor %}
+  </div>
+
+{% endblock %}

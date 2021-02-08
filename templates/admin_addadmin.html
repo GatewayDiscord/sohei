@@ -1,0 +1,23 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+  <div class="users">
+    <form method="post">
+    <label for="username">Username:</label>
+    <select name="username" id="username">
+      {% for user in users %}
+        <option value="{{user.username }}">{{user.username}}</option>
+      {% endfor %}}
+    </select>
+    <label for="role">Role:</label>
+    <select name="role" id="role">
+        <option value="member">Member</option> 
+        <option value="admin">Admin</option> 
+    </select>
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  {{error}}
+
+{% endblock %}

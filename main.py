@@ -66,9 +66,25 @@ def register(username, password, role):
     else:
         return "User already exists"
 
+
+def change_role(username, role):
+    username=sanitise(username)[1]
+    role=sanitise(role)[1]
+    User=Models.Users.query.filter_by(username=username).first()
+    if User is not None:
+        if User.role==role:
+            msg=f"User already has {role} role"
+        else:
+            User.role=role
+            msg="User role changed to {role}"
+    else:
+        msg="User doesn't exist."
+    return msg
+
+
 @app.route('/')
 def welcome():
-    return render_template('index.html', team_name=configs["team_name"], head_text=configs["head_text"])
+    return render_template('index.html', configs=configs)
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -101,14 +117,48 @@ def login():
                 error="Username or password is incorrect."
     except Exception as e:
         print(e)
-        return render_template('login.html', team_name=configs["team_name"], head_text=configs["head_text"], error=error)
-    return render_template('login.html', team_name=configs["team_name"], head_text=configs["head_text"], error=error)
+        return render_template('login.html', configs=configs, error=error)
+    return render_template('login.html', configs=configs, error=error)
 
+@app.route('/challenges', methods=["GET","POST"])
+@restricted('member')
+def challenges():
+    return render_template('challenges.html', configs={"team_name":configs['team_name'], "head_text":"Challenges"})
 
 @app.route('/admin', methods=["GET","POST"])
 @restricted('admin')
 def admin_index():
-    return render_template("admin_index.html",team_name=configs["team_name"], head_text=configs["head_text"])
+    return render_template("admin_index.html",configs={"team_name":configs['team_name']})
+
+
+@app.route('/admin/addadmin', methods=['GET', 'POST'])
+@restricted('admin')
+def admin_adddmins():
+    users=Models.Users.query.all()
+    try:
+        username=sanitise(request.form['username'])[1]
+        if username==session['username']:
+            error="Can't change your own role."
+        else:
+            role=sanitise(request.form['role'])[1]
+            update=Models.Users.query.filter_by(username=username)
+            if update!=None:
+                update.role=role
+                Models.db.session.commit()
+                error=f"Role changed successfully."
+            else:
+                error="User doesn't exist."
+    except:
+        error=""
+
+    return render_template('admin_addadmin.html', users=users, session=session,configs={"team_name":configs['team_name'], "head_text":"Change User Roles"} , error=error)
+
+@app.route('/admin/users', methods=["GET","POST"])
+@restricted('admin')
+def admin_users():
+    users=Models.Users.query.all()
+    return render_template("admin_users.html", users=users, session=session, configs={"team_name":configs['team_name'],
+        'head_text':"Users"})
 
 
 @app.route('/admin/adduser', methods=['GET',"POST"])
@@ -124,13 +174,8 @@ def adduser():
                 error=f"User {sanitise(request.form['username'])[1]} already exists."
     except Exception as e:
         print(e)
-    return render_template('adduser.html',team_name=configs["team_name"], head_text=configs["head_text"], error=error)
+    return render_template('adduser.html',configs={"team_name":configs['team_name'], "head_text":"Add Users"}, error=error)
 
-
-@app.route('/challenges', methods=["GET","POST"])
-@restricted('member')
-def challenges():
-    return f"Logged in as {session['username']} with role {session['role']}"
 
 if __name__=="__main__":
     #Models.db.create_all() #setup.py takes care of that.

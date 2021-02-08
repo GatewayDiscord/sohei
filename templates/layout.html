@@ -11,10 +11,12 @@
   <br>
   <center><h1 
     style="color:rgb(32, 255, 2); text-shadow: 4px 3px 0 #db10ff, 7px 2px 2px rgba(206,89,55,0);"
-    class="is-size-1 pixel">{{team_name}}</h1></center>
+    class="is-size-1 pixel">{{configs['team_name']}}</h1></center>
   <br>
+  {% if request.full_path=="/" or request.full_path=="/login" %}
   <center><h2 class="is-size-3">Welcome to sohei.</h2></center>
-  <center><p class="is-size-5">{{head_text}}</p></center>
+  {% endif %}
+  <center><p class="is-size-5">{{configs['head_text']}}</p></center>
   <div style="height: 3.5em"></div>
   {% block content %}{% endblock %}
 </body>
