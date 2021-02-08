@@ -43,5 +43,5 @@
 <ul>
   <li>Added login feature and minor registration features</li>
   <li>Added a sorta working admin panel that needds to be worked upon and setup.py which allows an admin user to be created on initial deployment</li>
-  <li>Admins can remove or add a certain user themselves.</li>
+  <li>Admins can add a certain user themselves.</li>
 </ul>
