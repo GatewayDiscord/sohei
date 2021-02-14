@@ -56,9 +56,6 @@ class CTFs(db.Model):
         self.status=status
         self.date=date
 
-    def init_db(self):
-        db.create_all()
-
 
 class files(db.Model):
 
@@ -73,10 +70,6 @@ class files(db.Model):
         self.fileid=fileid
         self.challengeid=challengeid
         self.filehash=filehash
-
-    def init_db(self):
-        db.create_all()
-
 
 if __name__=="__main__":
     init_db()
