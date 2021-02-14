@@ -34,7 +34,7 @@
   
   <h2>Test run the web app:</h2>
   
-  ```> python3 main.py``` only for development!! <b>the project isn't ready yet and is not even 1/4th of how the final product would be!</b>
+  ```> python3 main.py``` only for development!! <b>the project isn't ready yet! it doesn't fulfil it's purpose as of now!</b>
  
 
 <h4>Current development situation: </h4><p> A lot of work is to be put at the moment. As of now our short term targets are: </p>
