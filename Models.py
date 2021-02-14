@@ -66,7 +66,8 @@ class files(db.Model):
 
     fileid=db.Column(db.String(100))
     challengeid=db.Column(db.String(100), 
-            db.ForeignKey="challenges.challengeid", ondelete="CASCADE")
+            db.ForeignKey("challenges.challengeid", ondelete="CASCADE"))
+            
     filehash=db.Column(db.String(100))
 
     def __init__(self, fileid, challengeid, filehash):
