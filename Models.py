@@ -64,7 +64,7 @@ class files(db.Model):
 
     __tablename__="files"
 
-    fileid=db.Column(db.String(100))
+    fileid=db.Column(db.String(100), primary_key=True)
     challengeid=db.Column(db.String(100), 
             db.ForeignKey="challenges.challengeid", ondelete="CASCADE"))
     filehash=db.Column(db.String(100))
