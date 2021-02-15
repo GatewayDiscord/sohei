@@ -22,12 +22,12 @@ while True:
         break
     password=input("Enter admin password: ")
 
-teamname=input("Enter team-name [Leave blank for it to just say Gateway]: ").replace('}','').replace('{','').replace('\"',"").replace('\'','')
+teamname=input("Enter team-name [Leave blank for it to just say Gateway]: ")
 
 if teamname==" " or teamname=="":
     teamname="Gateway"
 
-slogan=input('Enter custom slogan [Leave it blank for it to just say the default slogan.]: ').replace('{','').replace('\"',"").replace('\'','')
+slogan=input('Enter custom slogan [Leave it blank for it to just say the default slogan.]: ')
 
 if slogan==" " or slogan=="":
     slogan="A framework for CTF Teams to play CTFs in order to win them."
