@@ -9,6 +9,8 @@ from sohei.main import register, sanitise
 import json
 import getpass
 
+print("setup.py is meant to be run to create an admin user to use in the webapp later and do basic config stuff.")
+
 Models.db.create_all()
 username=sanitise(input("Enter admin username: "))[1]
 password=getpass.getpass()
