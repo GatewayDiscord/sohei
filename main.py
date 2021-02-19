@@ -6,6 +6,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template, abo
 from flask_sqlalchemy import SQLAlchemy
 from sohei import Models
 from functools import wraps
+from flask_cors import CORS
 import secrets
 import time
 import re
@@ -15,6 +16,7 @@ import json
 
 
 app=Flask(__name__, template_folder="templates")
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']=''.join(secrets.choice(string.ascii_uppercase + string.digits) for i in range(200))
