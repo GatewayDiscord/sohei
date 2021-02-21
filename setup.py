@@ -3,9 +3,13 @@ import sys
 
 sys.path.insert(0, os.path.abspath("..")) # this is for me to fix a local bug. not a part of the project itself.
 
+try:
+    from sohei import Models
+    from sohei.main import register, sanitise
 
-from sohei import Models
-from sohei.main import register, sanitise
+except ModuleNotFoundError as e:
+    raise NameError('Please rename the parent directory of this file to \"sohei\"')
+
 import json
 import getpass
 
@@ -42,8 +46,7 @@ with open(__file__[:-8]+'config.json', 'w+') as file:
     data=json.dumps(json_to_save)
     file.write(data)
 
-print(res)
-
+print(res, "\n Please run main.py now.")
 
 if res!="Success":
     print("Try deleting test.db and try again.")
