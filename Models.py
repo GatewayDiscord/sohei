@@ -38,9 +38,6 @@ class challenges(db.Model):
         self.category=category
         self.ctfid=ctfid
 
-    def init_db(self):
-        db.create_all()
-
 class CTFs(db.Model):
     __tablename__="ctfs"
 
